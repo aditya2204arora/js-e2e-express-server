@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonar') {
-             sh "mvn verify sonar:sonar"
+              sh "${SCANNER_HOME}/bin/sonar-scanner"
             }
         }
     }
