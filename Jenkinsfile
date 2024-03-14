@@ -8,6 +8,7 @@ pipeline {
               sh "${SCANNER_HOME}/bin/sonar-scanner"
             }
         }
+        }
             stage('SonarQube analysis') {
             environment {
                 SCANNER_HOME = tool 'sonar';    
@@ -20,4 +21,4 @@ pipeline {
     }
 }
 }
-}
+
