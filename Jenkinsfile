@@ -4,6 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'npm install'
+             //   sh 'npm start'
     
         }
         }
@@ -13,10 +14,10 @@ pipeline {
             }
                 steps {
                 withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonar') {
-              sh "${SCANNER_HOME}/bin/sonar"
+              sh "${SONAR_HOME}/sonar-scanner -Dsonar.projectKey=myproject1 -Dsonar.sources=src"
             }
         }
     }
 }
 }
-
+ 
