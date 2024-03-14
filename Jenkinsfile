@@ -5,10 +5,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonar') {
-             bat """
-                // ${scannerHome}/bin/sonar-runner.bat
-                pip install -r requirements.txt
-            """
+             sh "mvn verify sonar:sonar"
             }
         }
     }
